@@ -92,7 +92,7 @@ import React, { useState, useEffect, useRef } from 'react';
         e.preventDefault();
         setLoading(true);
         setTimeout(() => {
-          if (password === 'admin') {
+          if (password === 'h$uvsYutNnn.,88tvobbkbb@2') {
             setIsAuthenticated(true);
             setUserName('User');
           } else if (password === 'cms') {
