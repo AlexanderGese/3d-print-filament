@@ -2,29 +2,18 @@ import React, { useState } from 'react';
     import { X } from 'lucide-react';
     import { FilamentItem } from '../types';
 
-    interface AddOrderModalProps {
+    interface EditOrderModalProps {
+      item: FilamentItem;
       onClose: () => void;
-      onSave: (item: Omit<FilamentItem, 'id'>) => void;
+      onSave: (item: FilamentItem) => void;
     }
 
-    export function AddOrderModal({ onClose, onSave }: AddOrderModalProps) {
-      const [formData, setFormData] = useState({
-        filament: '',
-        type: '',
-        weight: '',
-        price: '',
-        link: '',
-        name: '',
-        color: ''
-      });
+    export function EditOrderModal({ item, onClose, onSave }: EditOrderModalProps) {
+      const [formData, setFormData] = useState(item);
 
       const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        onSave({
-          ...formData,
-          weight: Number(formData.weight),
-          price: Number(formData.price)
-        });
+        onSave(formData);
         onClose();
       };
 
@@ -32,7 +21,7 @@ import React, { useState } from 'react';
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 modal-animated">
           <div className="bg-black/90 backdrop-blur-lg p-6 rounded-lg w-full max-w-md border border-purple-500/20 neon-border">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl text-purple-400 neon-text">Add New Order</h2>
+              <h2 className="text-xl text-purple-400 neon-text">Edit Order</h2>
               <button onClick={onClose} className="text-gray-400 hover:text-gray-200">
                 <X size={24} />
               </button>
