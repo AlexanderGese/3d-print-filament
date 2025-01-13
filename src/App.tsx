@@ -92,7 +92,7 @@ import React, { useState, useEffect, useRef } from 'react';
         e.preventDefault();
         setLoading(true);
         setTimeout(() => {
-          if (password === 'h$uvsYutNnn.,88tvobbkbb@2') {
+          if (password === 'sabaton3d') {
             setIsAuthenticated(true);
             setUserName('User');
           } else if (password === 'cms') {
